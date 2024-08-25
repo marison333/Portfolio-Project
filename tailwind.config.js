@@ -28,8 +28,8 @@ module.exports = {
         primary: {},
         secondary: {},
         focus: "",
-
       },
+      light: {},
     },
     layout: {}
   })],
