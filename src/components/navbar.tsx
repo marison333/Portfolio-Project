@@ -54,7 +54,6 @@ export const Navbar = () => {
                   "data-[active=true]:text-primary data-[active=true]:font-medium",
                 )}
                 href={item.href}
-                underline="active"
               >
                 {item.label}
               </Link>
@@ -66,12 +65,12 @@ export const Navbar = () => {
       <NavbarContent justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
           <Button
-            className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
+            className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
             color="success"
             variant="shadow"
             onPress={onOpen}
           >
-            Email me
+            Contact me
           </Button>
           <Modal backdrop={"blur"} isOpen={isOpen} onOpenChange={onOpenChange}>
             <ModalContent>
@@ -129,12 +128,12 @@ export const Navbar = () => {
         ))}
         <NavbarMenuItem>
           <Button
-            className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
+            className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
             color="success"
             variant="shadow"
             onPress={onOpen}
           >
-            Email me
+            Contact me
           </Button>
         </NavbarMenuItem>
       </NavbarMenu>

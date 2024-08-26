@@ -20,14 +20,18 @@ module.exports = {
     themes: {
       dark: {
         background: "#101010",
-        foreground: "#38B000",
-        primary: {},
+        foreground: "",
+        primary: {
+          foreground: "#70E000",
+        },
         secondary: {},
         colors: {
           forestgreen: "#006400",
           limegreen: "#70E000",
+          crimson: "#D00000",
+          neonmagenta: "#F72585",
         },
-        focus: "#9EF01A",
+        focus: "",
       },
       light: {},
     },
