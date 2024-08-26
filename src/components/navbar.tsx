@@ -1,11 +1,11 @@
 import { Link } from "@nextui-org/link";
 import {
-  Navbar as NextUINavbar,
+  Navbar as NextUINavbar, NavbarBrand,
   NavbarContent,
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarMenuToggle,
+  NavbarMenuToggle
 } from "@nextui-org/navbar";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
@@ -27,19 +27,23 @@ export const Navbar = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Home", "projects", "About me"];
-
   return (
     <NextUINavbar
       maxWidth="xl"
       position="sticky"
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+      <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
+        <NavbarBrand>
+        <h2 className="font-bold text-inherit">Marison Sol</h2>
+      </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <div className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
@@ -59,7 +63,6 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
@@ -73,8 +76,6 @@ export const Navbar = () => {
           </Button>
           <Modal
             backdrop={"blur"}
-            isDismissable={false}
-            isKeyboardDismissDisabled={true}
             isOpen={isOpen}
             onOpenChange={onOpenChange}
           >
@@ -117,24 +118,30 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+       {siteConfig.navItems.map((item) => (
+            <NavbarMenuItem key={item.href}>
+              <Link
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                )}
+                href={item.href}
+                underline="active"
+              >
+                {item.label}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        <NavbarMenuItem>
+          <Button
+            className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
+            color="success"
+            variant="shadow"
+            onPress={onOpen}
+          >
+            Email me
+          </Button>
+        </NavbarMenuItem>
       </NavbarMenu>
     </NextUINavbar>
   );
