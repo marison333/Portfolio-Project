@@ -1,11 +1,12 @@
 import { Link } from "@nextui-org/link";
 import {
-  Navbar as NextUINavbar, NavbarBrand,
+  Navbar as NextUINavbar,
+  NavbarBrand,
   NavbarContent,
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarMenuToggle
+  NavbarMenuToggle,
 } from "@nextui-org/navbar";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
@@ -39,8 +40,8 @@ export const Navbar = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-        <h2 className="font-bold text-inherit">Marison Sol</h2>
-      </NavbarBrand>
+          <h2 className="font-bold text-inherit">Marison Sol</h2>
+        </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
@@ -62,9 +63,7 @@ export const Navbar = () => {
         </div>
       </NavbarContent>
 
-      <NavbarContent
-        justify="end"
-      >
+      <NavbarContent justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
           <Button
             className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
@@ -74,11 +73,7 @@ export const Navbar = () => {
           >
             Email me
           </Button>
-          <Modal
-            backdrop={"blur"}
-            isOpen={isOpen}
-            onOpenChange={onOpenChange}
-          >
+          <Modal backdrop={"blur"} isOpen={isOpen} onOpenChange={onOpenChange}>
             <ModalContent>
               {(onClose) => (
                 <>
@@ -118,20 +113,20 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
-       {siteConfig.navItems.map((item) => (
-            <NavbarMenuItem key={item.href}>
-              <Link
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
-                href={item.href}
-                underline="active"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+        {siteConfig.navItems.map((item) => (
+          <NavbarMenuItem key={item.href}>
+            <Link
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:text-primary data-[active=true]:font-medium",
+              )}
+              href={item.href}
+              underline="active"
+            >
+              {item.label}
+            </Link>
+          </NavbarMenuItem>
+        ))}
         <NavbarMenuItem>
           <Button
             className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
