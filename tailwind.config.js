@@ -17,17 +17,17 @@ module.exports = {
     defaultTheme: "dark",
     defaultExtendTheme: "dark",
     addCommonColors: true,
-    colors: {
-      background: "",
-      foreground: "",
-    },
     themes: {
       dark: {
         background: "#101010",
-        foreground: "",
+        foreground: "#38B000",
         primary: {},
         secondary: {},
-        focus: "",
+        colors: {
+          forestgreen: "#006400",
+          limegreen: "#70E000",
+        },
+        focus: "#9EF01A",
       },
       light: {},
     },
