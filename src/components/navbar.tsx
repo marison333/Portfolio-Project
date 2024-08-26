@@ -29,114 +29,120 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <NextUINavbar
-      maxWidth="xl"
-      position="sticky"
-      onMenuOpenChange={setIsMenuOpen}
-    >
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
-          <h2 className="font-bold text-inherit">Marison Sol</h2>
-        </NavbarBrand>
-      </NavbarContent>
+    <header>
+      <NextUINavbar
+        maxWidth="xl"
+        position="sticky"
+        onMenuOpenChange={setIsMenuOpen}
+      >
+        <NavbarContent>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
+          <NavbarBrand>
+            <h2 className="font-bold text-inherit">Marison Sol</h2>
+          </NavbarBrand>
+        </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <div className="hidden lg:flex gap-4 justify-start ml-2">
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+          <div className="hidden lg:flex gap-4 justify-start ml-2">
+            {siteConfig.navItems.map((item) => (
+              <NavbarItem key={item.href}>
+                <Link
+                  className={clsx(
+                    linkStyles({ color: "foreground" }),
+                    "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  )}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              </NavbarItem>
+            ))}
+          </div>
+        </NavbarContent>
+
+        <NavbarContent justify="end">
+          <NavbarItem className="hidden sm:flex gap-2">
+            <Button
+              className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
+              color="success"
+              variant="shadow"
+              onPress={onOpen}
+            >
+              Contact me
+            </Button>
+            <Modal
+              backdrop={"blur"}
+              isOpen={isOpen}
+              onOpenChange={onOpenChange}
+            >
+              <ModalContent>
+                {(onClose) => (
+                  <>
+                    <ModalHeader className="flex flex-col gap-1">
+                      You are about to be send to your email service
+                    </ModalHeader>
+                    <ModalBody>Are you sure?</ModalBody>
+                    <ModalFooter>
+                      <Button
+                        isExternal
+                        as={Link}
+                        className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
+                        href=""
+                        variant="shadow"
+                        onPress={onClose}
+                      >
+                        yes
+                      </Button>
+                      <Button color="danger" variant="ghost" onPress={onClose}>
+                        No
+                      </Button>
+                    </ModalFooter>
+                  </>
+                )}
+              </ModalContent>
+            </Modal>
+          </NavbarItem>
+          <NavbarItem>
+            <Link isExternal href="https://www.instagram.com/marison.jpeg">
+              <InstagramIcon className="text-default-500" />
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link isExternal href="https://www.linkedin.com/in/marison-sol">
+              <LinkedinIcon className="text-default-500" />
+            </Link>
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarMenu>
           {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
+            <NavbarMenuItem key={item.href}>
               <Link
                 className={clsx(
                   linkStyles({ color: "foreground" }),
                   "data-[active=true]:text-primary data-[active=true]:font-medium",
                 )}
                 href={item.href}
+                underline="active"
               >
                 {item.label}
               </Link>
-            </NavbarItem>
+            </NavbarMenuItem>
           ))}
-        </div>
-      </NavbarContent>
-
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden sm:flex gap-2">
-          <Button
-            className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
-            color="success"
-            variant="shadow"
-            onPress={onOpen}
-          >
-            Contact me
-          </Button>
-          <Modal backdrop={"blur"} isOpen={isOpen} onOpenChange={onOpenChange}>
-            <ModalContent>
-              {(onClose) => (
-                <>
-                  <ModalHeader className="flex flex-col gap-1">
-                    You are about to be send to your email service
-                  </ModalHeader>
-                  <ModalBody>Are you sure?</ModalBody>
-                  <ModalFooter>
-                    <Button
-                      isExternal
-                      as={Link}
-                      className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
-                      href=""
-                      variant="shadow"
-                      onPress={onClose}
-                    >
-                      yes
-                    </Button>
-                    <Button color="danger" variant="ghost" onPress={onClose}>
-                      No
-                    </Button>
-                  </ModalFooter>
-                </>
-              )}
-            </ModalContent>
-          </Modal>
-        </NavbarItem>
-        <NavbarItem>
-          <Link isExternal href="https://www.instagram.com/marison.jpeg">
-            <InstagramIcon className="text-default-500" />
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link isExternal href="https://www.linkedin.com/in/marison-sol">
-            <LinkedinIcon className="text-default-500" />
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        {siteConfig.navItems.map((item) => (
-          <NavbarMenuItem key={item.href}>
-            <Link
-              className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
-              href={item.href}
-              underline="active"
+          <NavbarMenuItem>
+            <Button
+              className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
+              color="success"
+              variant="shadow"
+              onPress={onOpen}
             >
-              {item.label}
-            </Link>
+              Contact me
+            </Button>
           </NavbarMenuItem>
-        ))}
-        <NavbarMenuItem>
-          <Button
-            className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
-            color="success"
-            variant="shadow"
-            onPress={onOpen}
-          >
-            Contact me
-          </Button>
-        </NavbarMenuItem>
-      </NavbarMenu>
-    </NextUINavbar>
+        </NavbarMenu>
+      </NextUINavbar>
+    </header>
   );
 };
