@@ -12,14 +12,14 @@ export default function DefaultLayout({
     <div className="relative isolate overflow-hidden">
       <svg
         aria-hidden="true"
-        className="fixed left-1/2 bottom-1/2 -z-20 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,black,transparent)] sm:right-full sm:-mr-80 lg:right-1/2 lg:mr-0 lg:-translate-x-1/2 lg:translate-y-0"
+        className="fixed left-1/2 bottom-1/2 -z-20 h-[64rem] w-[64rem] translate-y-1/2 [mask-image:radial-gradient(closest-side,black,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
         viewBox="0 0 1024 1024"
       >
         <circle
           cx={512}
           cy={512}
           fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
-          fillOpacity="1"
+          fillOpacity="0.7"
           r={512}
         />
         <defs>
@@ -39,7 +39,7 @@ export default function DefaultLayout({
             isExternal
             className="flex items-center gap-1 text-current"
             href="https://www.instagram.com/marison.jpeg/"
-            title="nextui.org homepage"
+            title="Marison's Instagram"
           >
             <span className="text-default-600">Created by</span>
             <p>Marison Sol</p>
@@ -48,14 +48,14 @@ export default function DefaultLayout({
       </div>
       <svg
         aria-hidden="true"
-        className="fixed left-1/2 top-1/2 -z-20 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+        className="fixed right-1/2 top-1/2 -z-20 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,black,transparent)] sm:right-full sm:-mr-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
         viewBox="0 0 1024 1024"
       >
         <circle
           cx={512}
           cy={512}
           fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
-          fillOpacity="1"
+          fillOpacity="0.7"
           r={512}
         />
         <defs>
