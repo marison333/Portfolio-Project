@@ -2,6 +2,7 @@ import { Link } from "@nextui-org/link";
 import React from "react";
 
 import { Navbar } from "@/components/navbar";
+import { InstagramIcon, LinkedinIcon } from "@/components/icons.tsx";
 
 export default function DefaultLayout({
   children,
@@ -35,14 +36,11 @@ export default function DefaultLayout({
           {children}
         </main>
         <footer className="w-full flex items-center justify-center py-3">
-          <Link
-            isExternal
-            className="flex items-center gap-1 text-current"
-            href="https://www.instagram.com/marison.jpeg/"
-            title="Marison's Instagram"
-          >
-            <span className="text-default-600">Created by</span>
-            <p>Marison Sol</p>
+          <Link isExternal href="https://www.instagram.com/marison.jpeg">
+            <InstagramIcon className="text-default-500 mx-1" />
+          </Link>
+          <Link isExternal href="https://www.linkedin.com/in/marison-sol">
+            <LinkedinIcon className="text-default-500 mx-1" />
           </Link>
         </footer>
       </div>
