@@ -99,6 +99,7 @@ export default function IndexPage() {
           </Card>
         </div>
         <div className="flex flex-col gap-2 justify-center items-center">
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <h2 className={title({ class: "mt-4" })}>Let's get in Touch!</h2>
           <div className="mt-3">
             <ContactButton />
