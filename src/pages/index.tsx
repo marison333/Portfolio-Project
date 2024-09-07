@@ -98,9 +98,11 @@ export default function IndexPage() {
             </CardFooter>
           </Card>
         </div>
-        <div className="flex flex-col gap-2 justify-center">
-          <h2 className={title({ class: "mt-4" })}>Wanna talk?</h2>
-          <ContactButton />
+        <div className="flex flex-col gap-2 justify-center items-center">
+          <h2 className={title({ class: "mt-4" })}>Let's get in Touch!</h2>
+          <div className="mt-3">
+            <ContactButton />
+          </div>
         </div>
       </section>
     </DefaultLayout>

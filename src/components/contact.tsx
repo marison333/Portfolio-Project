@@ -15,7 +15,7 @@ export default function ContactButton() {
   return (
     <>
       <Button
-        className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
+        className="bg-gradient-to-br from-forestgreen to-limegreen text-white w-32"
         color="success"
         variant="shadow"
         onPress={onOpen}
@@ -28,15 +28,14 @@ export default function ContactButton() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                You are about to be send to your email service
+                Let's get in Touch!
               </ModalHeader>
               <ModalBody>Are you sure?</ModalBody>
               <ModalFooter>
                 <Button
-                  isExternal
                   as={Link}
                   className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
-                  href=""
+                  href="mailto:marison.sol@outlook.com"
                   variant="shadow"
                   onPress={onClose}
                 >
