@@ -50,7 +50,8 @@ export const Navbar = () => {
         </NavbarContent>
         <NavbarMenu>
           <NavbarMenuItem>
-            <h4>Wanna talk?</h4>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            <h4>Let's get in touch!</h4>
           </NavbarMenuItem>
           <NavbarMenuItem>
             <ContactButton />

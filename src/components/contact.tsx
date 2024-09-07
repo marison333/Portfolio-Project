@@ -28,6 +28,7 @@ export default function ContactButton() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Let's get in Touch!
               </ModalHeader>
               <ModalBody>Are you sure?</ModalBody>
