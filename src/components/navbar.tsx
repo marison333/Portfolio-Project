@@ -6,26 +6,14 @@ import {
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarMenuToggle,
+  NavbarMenuToggle
 } from "@nextui-org/navbar";
-import { link as linkStyles } from "@nextui-org/theme";
-import clsx from "clsx";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  useDisclosure,
-} from "@nextui-org/modal";
-import { Button } from "@nextui-org/button";
 import React from "react";
 
-import { siteConfig } from "@/config/site";
 import { InstagramIcon, LinkedinIcon } from "@/components/icons";
+import ContactButton from "@/components/contact.tsx";
 
 export const Navbar = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
@@ -45,65 +33,9 @@ export const Navbar = () => {
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <div className="hidden md:flex gap-4 justify-start ml-2">
-            {siteConfig.navItems.map((item) => (
-              <NavbarItem key={item.href}>
-                <Link
-                  className={clsx(
-                    linkStyles({ color: "foreground" }),
-                    "data-[active=true]:text-primary data-[active=true]:font-medium",
-                  )}
-                  href={item.href}
-                >
-                  {item.label}
-                </Link>
-              </NavbarItem>
-            ))}
-          </div>
-        </NavbarContent>
-
         <NavbarContent justify="end">
           <NavbarItem className="hidden sm:flex gap-2">
-            <Button
-              className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
-              color="success"
-              variant="shadow"
-              onPress={onOpen}
-            >
-              Contact me
-            </Button>
-            <Modal
-              backdrop={"blur"}
-              isOpen={isOpen}
-              onOpenChange={onOpenChange}
-            >
-              <ModalContent>
-                {(onClose) => (
-                  <>
-                    <ModalHeader className="flex flex-col gap-1">
-                      You are about to be send to your email service
-                    </ModalHeader>
-                    <ModalBody>Are you sure?</ModalBody>
-                    <ModalFooter>
-                      <Button
-                        isExternal
-                        as={Link}
-                        className="bg-gradient-to-tr from-forestgreen to-limegreen text-white"
-                        href=""
-                        variant="shadow"
-                        onPress={onClose}
-                      >
-                        yes
-                      </Button>
-                      <Button color="danger" variant="ghost" onPress={onClose}>
-                        No
-                      </Button>
-                    </ModalFooter>
-                  </>
-                )}
-              </ModalContent>
-            </Modal>
+            <ContactButton />
           </NavbarItem>
           <NavbarItem>
             <Link isExternal href="https://www.instagram.com/marison.jpeg">
@@ -117,29 +49,11 @@ export const Navbar = () => {
           </NavbarItem>
         </NavbarContent>
         <NavbarMenu>
-          {siteConfig.navItems.map((item) => (
-            <NavbarMenuItem key={item.href}>
-              <Link
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
-                href={item.href}
-                underline="active"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
           <NavbarMenuItem>
-            <Button
-              className="bg-gradient-to-br from-forestgreen to-limegreen text-white"
-              color="success"
-              variant="shadow"
-              onPress={onOpen}
-            >
-              Contact me
-            </Button>
+            <h4>Wanna talk?</h4>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <ContactButton />
           </NavbarMenuItem>
         </NavbarMenu>
       </NextUINavbar>

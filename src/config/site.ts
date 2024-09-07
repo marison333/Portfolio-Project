@@ -6,14 +6,6 @@ export const siteConfig = {
       label: "Home",
       href: "/",
     },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "About me",
-      href: "/about",
-    },
   ],
   links: {
     github: "https://github.com/marison333",
