@@ -1,4 +1,4 @@
 # Vite + React + NextUI Porfolio website⚡️
 An one page portfolio website that I also deployed 
 
-[Take a look!](https://portfolio-w6yes.kinsta.page/)
+[Take a look!]([https://portfolio-w6yes.kinsta.page/](https://portfolio-marisons-projects.vercel.app/))
